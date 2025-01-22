@@ -61,16 +61,16 @@ const User = mongoose.model("user", userSchema);
 app.post("/", async (req, res) => {
   const { name } = req.body;
 
-  try {
-    const user = await User.findOne({ name });
+  // try {
+  //   const user = await User.findOne({ name });
     if (user) {
       res.json({ success: true });
     } else {
       res.json({ success: false });
     }
-  } catch (error) {
-    console.log("Error fetching user");
-  }
+  // } catch (error) {
+  //   console.log("Error fetching user");
+  // }
 });
 
 app.listen(3000, () => {
