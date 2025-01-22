@@ -45,7 +45,8 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin:true));
 
 mongoose.connect("mongodb://localhost:27017/globalDB")
     .then(() => (console.log("db connected")))
@@ -53,7 +54,7 @@ mongoose.connect("mongodb://localhost:27017/globalDB")
 
 const userSchema = new mongoose.Schema({
   name: String,
-  pwd: String
+  //pwd: String
 });
 
 const User = mongoose.model("user", userSchema);
